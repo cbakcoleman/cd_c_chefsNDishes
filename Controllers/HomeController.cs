@@ -23,8 +23,29 @@ namespace cd_c_chefsNDishes.Controllers
         {
             ViewBag.AllChefs = _context.Chefs.
                 OrderByDescending(c => c.CreatedAt).ToList();
-                
+
             return View("Chefs");
+        }
+
+        [HttpGet("chef/add")]
+        public IActionResult AddChef()
+        {
+            return View("AddChef");
+        }
+
+        [HttpPost("thischef/add")]
+        public IActionResult ThisChefAdd(Chef chef)
+        {
+            if(ModelState.IsValid)
+            {
+                _context.Add(chef);
+                _context.SaveChanges();
+                return View("Chefs");
+            }
+            else
+            {
+                return View("addchef", chef);
+            }
         }
     }
 }
