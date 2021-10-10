@@ -28,8 +28,8 @@ namespace cd_c_chefsNDishes
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DishContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));
-            services.AddDbContext<ChefContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));
+            services.AddDbContext<chefsNDishesContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));
+
             services.AddSession();
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }
