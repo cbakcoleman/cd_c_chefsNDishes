@@ -22,6 +22,13 @@ namespace cd_c_chefsNDishes.Models
         [Display(Name = "Date of Birth: ")]
         public DateTime BirthDate {get;set;}
 
+        public int Age { get{
+            DateTime now = DateTime.Today;
+            int age = now.Year - BirthDate.Year;
+            if (BirthDate > now.AddYears(-age)) age--;
+            return age;
+        }}
+
         public List<Dish> CreatedDishes {get;set;}
 
         public DateTime CreatedAt {get;set;} = DateTime.Now;

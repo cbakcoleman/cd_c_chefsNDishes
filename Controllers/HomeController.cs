@@ -19,9 +19,12 @@ namespace cd_c_chefsNDishes.Controllers
         }
 
         [HttpGet("")]
-        public IActionResult Index()
+        public IActionResult Chefs()
         {
-            return View();
+            ViewBag.AllChefs = _context.Chefs.
+                OrderByDescending(c => c.CreatedAt).ToList();
+                
+            return View("Chefs");
         }
     }
 }
