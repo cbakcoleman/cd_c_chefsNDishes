@@ -23,6 +23,9 @@ namespace cd_c_chefsNDishes
         {
             Configuration = configuration;
         }
+
+        public IConfiguration Configuration {get;}
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DishContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));

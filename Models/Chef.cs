@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace cd_c_chefsNDishes.Models
 {
@@ -20,6 +21,8 @@ namespace cd_c_chefsNDishes.Models
         [DataType(DataType.DateTime), DisplayFormat(DataFormatString = "{0:MMMM ddd, yyyy")]
         [Display(Name = "Date of Birth: ")]
         public DateTime BirthDate {get;set;}
+
+        public List<Dish> CreatedDishes {get;set;}
 
         public DateTime CreatedAt {get;set;} = DateTime.Now;
 

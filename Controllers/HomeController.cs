@@ -11,16 +11,11 @@ namespace cd_c_chefsNDishes.Controllers
 {
     public class HomeController : Controller
     {
-        private DishContext _dish_context;
-        private ChefContext _chef_context;
+        private chefsNDishesContext _context;
 
-        public HomeController(DishContext context)
+        public HomeController(chefsNDishesContext context)
         {
-            _dish_context = context;
-        }
-        public HomeController(ChefContext context)
-        {
-            _chef_context = context;
+            _context = context;
         }
 
         [HttpGet("")]
