@@ -7,34 +7,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <title>Chefs</title>
+    <title>Dishes</title>
 </head>
 <body>
     <div class="container p-3"> <!-- BEGIN WHOLE PAGE CONTAINER -->
         <div class="row"> <!-- BEGIN HEADER ROW -->
             <div class="col">
-                <h3>CHEFS | <a href="/dishes">DISHES</a></h3>
+                <h3><a href="/">CHEFS </a> | DISHES</h3>
             </div>
             <div class="col">
-                <h4><a href="/chef/add">Add a Chef</a></h4>
+                <h4><a href="/dish/add">Add a Dish</a></h4>
             </div>
         </div> <!-- END HEADER ROW -->
 
         <div class="row"> <!-- BEGIN MAIN BODY ROW -->
-            <h4>Check out our roster of Chefs!</h4>
+            <h4>Yummy Yummy Yummy we got dishes in our Tummy!!</h4>
             <table>
                 <tr>
                     <td>Name</td>
-                    <td>Age</td>
-                    <td># of Dishes</td>
+                    <td>Chef</td>
+                    <td>Tastiness</td>
+                    <td>Calories</td>
                 </tr>
                 @{
-                    foreach (var c in ViewBag.AllChefs)
+                    foreach (var d in ViewBag.AllDishes)
                     {
                         <tr>
-                            <td>@c.FirstName @c.LastName</td>
-                            <td>[INPUT AGE HERE]<td>
-                            <td>[INPUT NUMBER OF DISHES HERE]</td>
+                            <td>@d.Name</td>
+                            <td>[INPUT CHEF HERE]<td>
+                            <td>[INPUT TASTINESS HERE]</td>
+                            <td>[INPUT CALORIES HERE]</td>
                         </tr>
                     }
                 }

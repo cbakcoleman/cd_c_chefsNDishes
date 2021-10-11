@@ -22,7 +22,7 @@ namespace cd_c_chefsNDishes.Controllers
         public IActionResult Chefs()
         {
             ViewBag.AllChefs = _context.Chefs.
-                OrderByDescending(c => c.CreatedAt).ToList();
+                OrderByDescending(c => c.LastName).ToList();
 
             return View("Chefs");
         }
@@ -40,12 +40,23 @@ namespace cd_c_chefsNDishes.Controllers
             {
                 _context.Add(chef);
                 _context.SaveChanges();
-                return View("Chefs");
+                return RedirectToAction("Chefs");
             }
             else
             {
                 return View("addchef", chef);
             }
         }
+
+        [HttpGet("dishes")]
+        public IActionResult Dishes()
+        {
+            ViewBag.AllDishes = _context.Dishes.
+                OrderByDescending(d => d.CreatedAt).ToList();
+
+            return View("Dishes");
+        }
+
+        
     }
 }
