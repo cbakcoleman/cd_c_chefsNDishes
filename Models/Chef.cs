@@ -18,7 +18,8 @@ namespace cd_c_chefsNDishes.Models
         public string LastName {get;set;}
 
         [Required(ErrorMessage = "Date of Birth required.")]
-        [DataType(DataType.DateTime), DisplayFormat(DataFormatString = "MMMM dd, yyyy")]
+        [AdultAgeValidation(ErrorMessage = "Chef must be 18 yrs of age or older.")]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "MMMM dd, yyyy", ApplyFormatInEditMode = true) ]
         [Display(Name = "Date of Birth: ")]
         public DateTime BirthDate {get;set;}
 
