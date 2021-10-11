@@ -31,7 +31,6 @@ namespace cd_c_chefsNDishes.Migrations
                 {
                     DishId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    ChefName = table.Column<string>(nullable: false),
                     DishName = table.Column<string>(nullable: false),
                     Calories = table.Column<int>(nullable: false),
                     Tastiness = table.Column<int>(nullable: false),

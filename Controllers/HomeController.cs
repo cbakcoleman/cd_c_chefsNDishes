@@ -22,6 +22,7 @@ namespace cd_c_chefsNDishes.Controllers
         public IActionResult Chefs()
         {
             ViewBag.AllChefs = _context.Chefs.
+                Include(c => c.CreatedDishes).
                 OrderByDescending(c => c.LastName).ToList();
 
             return View("Chefs");
@@ -38,6 +39,10 @@ namespace cd_c_chefsNDishes.Controllers
         {
             if(ModelState.IsValid)
             {
+                if(chef.BirthDate < DateTime.Now.AddYears(-18))
+                {
+                    ModelState.AddModelError("BirthDate", "Chef must be 18 yrs or older.");
+                }
                 _context.Add(chef);
                 _context.SaveChanges();
                 return RedirectToAction("Chefs");
@@ -51,8 +56,11 @@ namespace cd_c_chefsNDishes.Controllers
         [HttpGet("dishes")]
         public IActionResult Dishes()
         {
+            
             ViewBag.AllDishes = _context.Dishes.
+                Include(d => d.Creator).
                 OrderByDescending(d => d.CreatedAt).ToList();
+            
 
             return View("Dishes");
         }
@@ -62,7 +70,6 @@ namespace cd_c_chefsNDishes.Controllers
         {
             ViewBag.AllChefs = _context.Chefs.
                 OrderByDescending(c => c.LastName).ToList();
-
             return View("AddDish");
         }
 
@@ -71,13 +78,16 @@ namespace cd_c_chefsNDishes.Controllers
         {
             if(ModelState.IsValid)
             {
+                System.Console.WriteLine("Model state was valid");
                 _context.Add(dish);
                 _context.SaveChanges();
                 return RedirectToAction("dishes");
             }
             else
             {
-                return View("adddish", dish);
+                ViewBag.AllChefs = _context.Chefs.
+                OrderByDescending(c => c.LastName).ToList();
+                return View("AddDish");
             }
         }
 

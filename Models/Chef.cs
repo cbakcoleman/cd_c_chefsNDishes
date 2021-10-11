@@ -18,7 +18,7 @@ namespace cd_c_chefsNDishes.Models
         public string LastName {get;set;}
 
         [Required(ErrorMessage = "Date of Birth required.")]
-        [DataType(DataType.DateTime), DisplayFormat(DataFormatString = "{0:MMMM ddd, yyyy")]
+        [DataType(DataType.DateTime), DisplayFormat(DataFormatString = "MMMM dd, yyyy")]
         [Display(Name = "Date of Birth: ")]
         public DateTime BirthDate {get;set;}
 

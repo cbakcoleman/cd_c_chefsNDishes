@@ -9,7 +9,7 @@ using cd_c_chefsNDishes.Models;
 namespace cd_c_chefsNDishes.Migrations
 {
     [DbContext(typeof(chefsNDishesContext))]
-    [Migration("20211010224208_FirstMigration")]
+    [Migration("20211011194354_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,10 +58,6 @@ namespace cd_c_chefsNDishes.Migrations
 
                     b.Property<int>("ChefId")
                         .HasColumnType("int");
-
-                    b.Property<string>("ChefName")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");

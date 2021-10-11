@@ -33,10 +33,10 @@
                     foreach (var d in ViewBag.AllDishes)
                     {
                         <tr>
-                            <td>@d.Name</td>
-                            <td>[INPUT CHEF HERE]<td>
-                            <td>[INPUT TASTINESS HERE]</td>
-                            <td>[INPUT CALORIES HERE]</td>
+                            <td>@d.DishName</td>
+                            <td>@d.Creator.FirstName @d.Creator.LastName<td>
+                            <td>@d.Tastiness</td>
+                            <td>@d.Calories</td>
                         </tr>
                     }
                 }

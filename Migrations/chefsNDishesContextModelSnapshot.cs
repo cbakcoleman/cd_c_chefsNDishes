@@ -57,10 +57,6 @@ namespace cd_c_chefsNDishes.Migrations
                     b.Property<int>("ChefId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ChefName")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 

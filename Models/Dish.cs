@@ -8,10 +8,6 @@ namespace cd_c_chefsNDishes.Models
             [Key]
             public int DishId {get;set;}
 
-            [Required(ErrorMessage = "Chef Name required.")]
-            [Display(Name = "Chef Name: ")]
-            public string ChefName {get;set;}
-
             [Required(ErrorMessage = "Dish Name required.")]
             [Display(Name = "Dish Name: ")]
             public string DishName {get;set;}
