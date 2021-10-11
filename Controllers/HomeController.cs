@@ -57,6 +57,29 @@ namespace cd_c_chefsNDishes.Controllers
             return View("Dishes");
         }
 
-        
+        [HttpGet("dish/add")]
+        public IActionResult AddDish()
+        {
+            ViewBag.AllChefs = _context.Chefs.
+                OrderByDescending(c => c.LastName).ToList();
+
+            return View("AddDish");
+        }
+
+        [HttpPost("thisdish/add")]
+        public IActionResult ThisDishAdd(Dish dish)
+        {
+            if(ModelState.IsValid)
+            {
+                _context.Add(dish);
+                _context.SaveChanges();
+                return RedirectToAction("dishes");
+            }
+            else
+            {
+                return View("adddish", dish);
+            }
+        }
+
     }
 }

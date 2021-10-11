@@ -23,16 +23,23 @@
         </div> <!-- END ROW -->
 
         <div class="row"> <!-- BEGIN FORM ROW -->
-            <form asp-action="" asp-controller="home"> 
+            <form asp-action="thisdishadd" asp-controller="home" class="form-group"> 
                 <div class="col m-1 card p-3">
                     <div class="row">
                         <div class="col">
                             <div>
-                                <span asp-validation-for="ChefName"></span>
+                                <span asp-validation-for="ChefId"></span>
                             </div>
-                            <label asp-for="ChefName"></label>
-                            <input asp-for="ChefName" class="form-control">
-
+                            <label asp-for="ChefId"></label>
+                            <select class="form-control" asp-for="ChefId">
+                                    <option disabled selected hidden>--Select a Chef--</option>
+                                    @{
+                                        foreach (var c in ViewBag.AllChefs)
+                                        {
+                                        <option value="@c.ChefId">@c.FirstName @c.LastName </option>
+                                        }
+                                    }
+                            </select>
                             <div>
                                 <span asp-validation-for="DishName"></span>
                             </div>
@@ -51,7 +58,7 @@
                             </div>
                             <label asp-for="Tastiness"></label>
                             <select class="form-control" asp-for="Tastiness">
-                                <option disabled selected hidden>--Select a Number</option>
+                                <option disabled selected hidden>--Select a Number--</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
